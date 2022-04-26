@@ -174,6 +174,24 @@ pascal_sbd_dataset = dataset_base.copy({
 
 
 
+DRONEVIS_LABEL_MAP = { 0:1,  1:2,  2:3,  3:4, 4:5, 6:6} # { 1: 0,  2: 1,  3: 2,  4: 3,  5: 4,  6: 5} #
+DRONE_CLASSES = ("car", "truck", "motorcycle", "trafficlight", "bicycle", "person")
+
+drone_vis_dataset = dataset_base.copy({
+    'name': 'DroneVis - Instance Segmentation',
+    
+     
+    'train_images': 'data/DroneVisSet_v0.2/jaco_DroneVis-IMG/v0.2/',
+    'valid_images': 'data/DroneVisSet_v0.2/jaco_DroneVis-VAL2/v0.1/',
+    
+    'train_info': 'data/DroneVisSet_v0.2/export_coco-instance_jaco_DroneVis-IMG_v0.2.json',
+    'valid_info':'data/DroneVisSet_v0.2/export_coco-instance_jaco_DroneVis-VAL2_v0.1.json',
+
+    # we need to secure a mapping
+    'class_names': DRONE_CLASSES,
+    'label_map': DRONEVIS_LABEL_MAP
+})
+
 
 
 # ----------------------- TRANSFORMS ----------------------- #
@@ -766,6 +784,19 @@ yolact_resnet50_pascal_config = yolact_resnet50_config.copy({
         'use_square_anchors': False,
     })
 })
+
+
+yolact_resnet50_drone_vis_config = yolact_resnet50_config.copy({
+    
+    'name': 'yolact_plus_resnet50_drone_vis',
+    # Dataset stuff
+    'dataset': drone_vis_dataset,
+    'num_classes': 6+1, #len(drone_vis_dataset.class_names) + 1,
+
+    # Image Size
+    'max_size': 512,
+})
+
 
 # ----------------------- YOLACT++ CONFIGS ----------------------- #
 
