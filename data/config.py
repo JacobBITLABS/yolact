@@ -172,7 +172,7 @@ pascal_sbd_dataset = dataset_base.copy({
     'class_names': PASCAL_CLASSES,
 })
 
-
+# "categories": [{"name": "motorcycle", "id": 0, "color": [0, 113, 188, 255], "attributes": []}, {"id": 1, "name": "car", "color": [216, 82, 24, 255], "attributes": []}, {"id": 2, "name": "truck", "color": [236, 176, 31, 255], "attributes": []}, {"id": 3, "name": "person", "color": [125, 46, 141, 255], "attributes": []}, {"id": 4, "name": "bicycle", "color": [118, 171, 47, 255], "attributes": []}, {"id": 6, "name": "trafficlight", "color": [255, 0, 0, 255], "attributes": []}]
 
 DRONEVIS_LABEL_MAP = { 0:1, 1:2, 2:3, 3:4, 4:5, 6:6} # { 1: 0,  2: 1,  3: 2,  4: 3,  5: 4,  6: 5} #
 #DRONE_CLASSES = ("car", "truck", "motorcycle", "trafficlight", "bicycle", "person")
@@ -675,8 +675,11 @@ yolact_base_config = coco_base_config.copy({
     'name': 'yolact_base',
 
     # Dataset stuff
-    'dataset': coco2017_dataset,
-    'num_classes': len(coco2017_dataset.class_names) + 1,
+    # 'dataset': coco2017_dataset,
+    # 'num_classes': len(coco2017_dataset.class_names) + 1,
+
+    'dataset': drone_vis_dataset,
+    'num_classes': 6+1, #len(drone_vis_dataset.class_names) + 1,
 
     # Image Size
     'max_size': 550,
@@ -791,7 +794,7 @@ yolact_resnet50_drone_vis_config = yolact_resnet50_config.copy({
     # Dataset stuff
     'dataset': drone_vis_dataset,
     'num_classes': 6+1, #len(drone_vis_dataset.class_names) + 1,
-
+    
     # Image Size
     'max_size': 512,
 })
