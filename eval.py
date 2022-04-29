@@ -462,12 +462,12 @@ def prep_metrics(ap_data, dets, img, gt, gt_masks, h, w, num_crowd, image_id, de
         num_gt_for_class = sum([1 for x in gt_classes if x == _class])
         
         for iouIdx in range(len(iou_thresholds)):
-            print("iouIdx: ", iouIdx)
+           # print("iouIdx: ", iouIdx)
             iou_threshold = iou_thresholds[iouIdx]
 
             for iou_type, iou_func, crowd_func, score_func, indices in iou_types:
                 gt_used = [False] * len(gt_classes)
-                print("iou_type", iou_type)
+               # print("iou_type", iou_type)
                 
                 ap_obj = ap_data[iou_type][iouIdx][_class]
                 ap_obj.add_gt_positives(num_gt_for_class)
