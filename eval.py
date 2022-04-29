@@ -456,7 +456,7 @@ def prep_metrics(ap_data, dets, img, gt, gt_masks, h, w, num_crowd, image_id, de
 
     timer.start('Main loop')
     for _class in set(classes + gt_classes):
-        print("classes: " + classes, "gt_classes: ",  gt_classes)
+        print("_class: ", _class)
         ap_per_iou = []
         num_gt_for_class = sum([1 for x in gt_classes if x == _class])
         
