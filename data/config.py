@@ -790,7 +790,7 @@ yolact_resnet50_drone_vis_config = yolact_resnet50_config.copy({
     'name': 'yolact_plus_resnet50_drone_vis',
     # Dataset stuff
     'dataset': drone_vis_dataset,
-    'num_classes': 6+1, #len(drone_vis_dataset.class_names) + 1,
+    'num_classes': len(drone_vis_dataset.class_names) + 1,
 
     # Image Size
     'max_size': 512,
