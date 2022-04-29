@@ -175,11 +175,11 @@ pascal_sbd_dataset = dataset_base.copy({
 
 
 DRONEVIS_LABEL_MAP = { 0:1,  1:2,  2:3,  3:4, 4:5, 6:6} # { 1: 0,  2: 1,  3: 2,  4: 3,  5: 4,  6: 5} #
-DRONE_CLASSES = ("car", "truck", "motorcycle", "trafficlight", "bicycle", "person")
+#DRONE_CLASSES = ("car", "truck", "motorcycle", "trafficlight", "bicycle", "person")
+DRONE_CLASSES = ("motorcycle","car", "truck", "person", "bicycle" "trafficlight")
 
 drone_vis_dataset = dataset_base.copy({
     'name': 'DroneVis - Instance Segmentation',
-    
      
     'train_images': 'data/DroneVisSet_v0.2/jaco_DroneVis-IMG/v0.2/',
     'valid_images': 'data/DroneVisSet_v0.2/jaco_DroneVis-VAL2/v0.1/',
@@ -787,7 +787,6 @@ yolact_resnet50_pascal_config = yolact_resnet50_config.copy({
 
 
 yolact_resnet50_drone_vis_config = yolact_resnet50_config.copy({
-    
     'name': 'yolact_plus_resnet50_drone_vis',
     # Dataset stuff
     'dataset': drone_vis_dataset,
