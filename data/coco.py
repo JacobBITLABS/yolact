@@ -38,7 +38,7 @@ class COCOAnnotationTransform(object):
             if 'bbox' in obj:
                 bbox = obj['bbox']
                 label_idx = obj['category_id']
-                print("label_id", label_idx)
+                print("label_id", label_idx, flush=True)
                 if label_idx >= 0:
                     label_idx = self.label_map[label_idx] - 1
                 final_box = list(np.array([bbox[0], bbox[1], bbox[0]+bbox[2], bbox[1]+bbox[3]])/scale)
