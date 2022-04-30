@@ -181,11 +181,11 @@ DRONE_CLASSES = ("motorcycle", "car", "truck", "person", "bicycle" "trafficlight
 drone_vis_dataset = dataset_base.copy({
     'name': 'DroneVis - Instance Segmentation',
      
-    'train_images': 'data/DroneVisSet_v0.2/jaco_DroneVis-IMG/v0.2/',
-    'valid_images': 'data/DroneVisSet_v0.2/jaco_DroneVis-VAL2/v0.1/',
+    'train_images': './data/DroneVisSet_v0.2/jaco_DroneVis-IMG/v0.2/',
+    'valid_images': './data/DroneVisSet_v0.2/jaco_DroneVis-VAL2/v0.1/',
     
-    'train_info': 'data/DroneVisSet_v0.2/export_coco-instance_jaco_DroneVis-IMG_v0.2.json',
-    'valid_info':'data/DroneVisSet_v0.2/export_coco-instance_jaco_DroneVis-VAL2_v0.1.json',
+    'train_info': './data/DroneVisSet_v0.2/export_coco-instance_jaco_DroneVis-IMG_v0.2.json',
+    'valid_info':'./data/DroneVisSet_v0.2/export_coco-instance_jaco_DroneVis-VAL2_v0.1.json',
 
     # we need to secure a mapping
     'class_names': DRONE_CLASSES,
