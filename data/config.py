@@ -174,7 +174,6 @@ pascal_sbd_dataset = dataset_base.copy({
 
 # "categories": [{"name": "motorcycle", "id": 0, "color": [0, 113, 188, 255], "attributes": []}, {"id": 1, "name": "car", "color": [216, 82, 24, 255], "attributes": []}, {"id": 2, "name": "truck", "color": [236, 176, 31, 255], "attributes": []}, {"id": 3, "name": "person", "color": [125, 46, 141, 255], "attributes": []}, {"id": 4, "name": "bicycle", "color": [118, 171, 47, 255], "attributes": []}, {"id": 6, "name": "trafficlight", "color": [255, 0, 0, 255], "attributes": []}]
 
-
 drone_vis_dataset = dataset_base.copy({
     'name': 'DroneVis - Instance Segmentation',
      
@@ -182,11 +181,11 @@ drone_vis_dataset = dataset_base.copy({
     'valid_images': './data/DroneVisSet_v0.2/jaco_DroneVis-VAL2/v0.1/',
     
     'train_info': './data/DroneVisSet_v0.2/export_coco-instance_jaco_DroneVis-IMG_v0.2.json',
-    'valid_info':'./data/DroneVisSet_v0.2/export_coco-instance_jaco_DroneVis-VAL2_v0.1.json',
+    'valid_info':'.data/DroneVisSet_v0.2/export_coco-instance_jaco_DroneVis-VAL2_v0.1.json',
 
     # we need to secure a mapping
-    'class_names': ("motorcycle", "car", "truck", "person", "bicycle" "trafficlight"),
-    'label_map': {0:1, 1:2, 2:3, 3:4, 4:5, 6:6}
+    'class_names': { 0:1, 1:2, 2:3, 3:4, 4:5, 6:6 }, # { 1: 0,  2: 1,  3: 2,  4: 3,  5: 4,  6: 5} #,
+    'label_map': ("motorcycle", "car", "truck", "person", "bicycle" "trafficlight")
 })
 
 
@@ -782,11 +781,11 @@ yolact_resnet50_pascal_config = yolact_resnet50_config.copy({
 })
 
 
-yolact_resnet50_drone_vis_config = yolact_base_config.copy({
+yolact_resnet50_drone_vis_config = yolact_resnet50_config.copy({
     'name': 'yolact_plus_resnet50_drone_vis',
     # Dataset stuff
     'dataset': drone_vis_dataset,
-    'num_classes': len(drone_vis_dataset.class_names) + 1,
+    'num_classes': 6+1 #len(drone_vis_dataset.class_names) + 1,
     
     # Image Size
     'max_size': 512,
