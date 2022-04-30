@@ -181,7 +181,7 @@ drone_vis_dataset = dataset_base.copy({
     'valid_images': './data/DroneVisSet_v0.2/jaco_DroneVis-VAL2/v0.1/',
     
     'train_info': './data/DroneVisSet_v0.2/export_coco-instance_jaco_DroneVis-IMG_v0.2.json',
-    'valid_info':'.data/DroneVisSet_v0.2/export_coco-instance_jaco_DroneVis-VAL2_v0.1.json',
+    'valid_info':'./data/DroneVisSet_v0.2/export_coco-instance_jaco_DroneVis-VAL2_v0.1.json',
 
     # we need to secure a mapping
     'class_names': { 0:1, 1:2, 2:3, 3:4, 4:5, 6:6 }, # { 1: 0,  2: 1,  3: 2,  4: 3,  5: 4,  6: 5} #,
